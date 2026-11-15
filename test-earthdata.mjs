@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { writeArrayBuffer } from 'geotiff'
 import { getFieldTelemetry, fieldLocations, smapCell, asciiValue, nasaRequest } from './src/earthdata.ts'
-import app from './src/index.tsx'
+import app from './src/index.ts'
 
 const originalFetch = globalThis.fetch
 const field = fieldLocations[0]
