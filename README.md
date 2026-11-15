@@ -102,6 +102,6 @@ Hono + React/TypeScript + Vite + Wrangler. `src/earthdata.ts` contains the serve
 
 ## Vercel deployment
 
-The project can also deploy to Vercel from this repository. The Vercel build runs `npm run build:vercel`, publishes the generated `public/` assets to the CDN, and runs the Hono API as a Function. Configure `NASA_EARTHDATA_TOKEN` as a Vercel environment variable to enable live NASA measurements; without it, the dashboard safely displays sample baselines. `GOOGLE_MAPS_BROWSER_KEY` is optional.
+The project can also deploy to Vercel from this repository. Vercel serves checked-in files under `public/` from its CDN and runs the Hono API as a Function. Regenerate and commit the files in `public/static/` with `npm run build:vercel` whenever client code or styles change. Configure `NASA_EARTHDATA_TOKEN` as a Vercel environment variable to enable live NASA measurements; without it, the dashboard safely displays sample baselines. `GOOGLE_MAPS_BROWSER_KEY` is optional.
 
 Last updated: 2026-11-15.
