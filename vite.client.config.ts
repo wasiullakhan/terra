@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
+const isVercelBuild = process.env.VERCEL === '1'
 export default defineConfig({
   plugins: [tailwindcss(), {
     name: 'offline-asset-manifest',
@@ -9,7 +10,7 @@ export default defineConfig({
     }
   }],
   build: {
-    outDir:'dist',emptyOutDir:true,
+    outDir:isVercelBuild?'public':'dist',emptyOutDir:!isVercelBuild,
     rollupOptions:{input:'src/client.tsx',output:{entryFileNames:'static/app.js',chunkFileNames:'static/[name]-[hash].js',assetFileNames:asset=>asset.names?.some(n=>n.endsWith('.css'))?'static/app.css':'static/[name][extname]'}}
   }
 })
