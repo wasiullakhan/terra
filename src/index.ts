@@ -1,5 +1,5 @@
 import { Hono, type Context } from 'hono'
-import { fieldLocations, getFieldTelemetry } from './earthdata'
+import { fieldLocations, getFieldTelemetry } from './earthdata.js'
 type Bindings = { GOOGLE_MAPS_BROWSER_KEY?: string; NASA_EARTHDATA_TOKEN?: string }
 const app = new Hono<{ Bindings: Bindings }>()
 function getBindings(c: Context<{ Bindings: Bindings }>) {

@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --config vite.client.config.ts && vite build",
+    "build:vercel": "vite build --config vite.client.config.ts --mode vercel",
     "preview": "wrangler pages dev",
     "deploy": "npm run build && wrangler pages deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings"
