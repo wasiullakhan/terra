@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 export default defineConfig(({ mode }) => ({
   // Vercel serves public/ as CDN assets; Cloudflare Pages bundles them into dist/.
+  publicDir: mode === 'vercel' ? false : 'public',
   build: {
     outDir:mode === 'vercel' ? 'public' : 'dist',
     emptyOutDir:mode !== 'vercel',
