@@ -98,7 +98,7 @@ Validation completed:
 
 ## Configuration
 
-Hono + React/TypeScript + Vite + Wrangler. `src/earthdata.ts` contains the server-only NASA adapters; `src/index.tsx` owns API routes; `src/client.tsx` owns card state. GeoTIFF and proj4 are backend dependencies and do not enter the browser bundle. Production setup remains in `wrangler.jsonc`; no D1/KV/R2 bindings or runtime filesystem operations were added.
+Hono + React/TypeScript + Vite + Wrangler. `src/earthdata.ts` contains the server-only NASA adapters; `src/index.ts` owns API routes; `src/client.tsx` owns card state. GeoTIFF and proj4 are backend dependencies and do not enter the browser bundle. Production setup remains in `wrangler.jsonc`; no D1/KV/R2 bindings or runtime filesystem operations were added.
 
 ## Vercel deployment
 
