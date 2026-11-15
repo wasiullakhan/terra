@@ -93,11 +93,15 @@ Validation completed:
 - Verify NASA product/version lifecycle and regional QA with a domain expert. The current short-name/version choices are verified against live NASA services, but future collection migrations may require maintenance.
 - Consider D1/R2-backed observation snapshots and scheduled/offline ingestion if long-term histories, extended cloudy-period search or production-scale traffic become requirements. No cloud sync, live weather feed, calibrated forecast or full satellite histories are implemented here.
 - Existing card/report sparklines, weather, rotation projections, confidence badges and field boundaries remain illustrative. Do not treat these as additional NASA measurements.
-- Configure rotated production secrets and quotas/rate limiting, then explicitly choose a deployment target. No production deployment, Cloudflare resource creation or GitHub push was performed.
+- Configure rotated production secrets and quotas/rate limiting. No Cloudflare resources are required for local development.
 - Review regional translations with native speakers. Existing dependencies report three moderate npm audit advisories; no unrelated force upgrades were performed.
 
 ## Configuration
 
 Hono + React/TypeScript + Vite + Wrangler. `src/earthdata.ts` contains the server-only NASA adapters; `src/index.tsx` owns API routes; `src/client.tsx` owns card state. GeoTIFF and proj4 are backend dependencies and do not enter the browser bundle. Production setup remains in `wrangler.jsonc`; no D1/KV/R2 bindings or runtime filesystem operations were added.
+
+## Vercel deployment
+
+The project can also deploy to Vercel from this repository. Vercel serves the built browser assets from `public/` and runs the Hono API as a Vercel Function. Configure `NASA_EARTHDATA_TOKEN` as a Vercel environment variable to enable live NASA measurements; without it, the dashboard safely displays sample baselines. `GOOGLE_MAPS_BROWSER_KEY` is optional.
 
 Last updated: 2026-11-15.
